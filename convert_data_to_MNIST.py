@@ -1,15 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug  6 17:28:49 2018
+Spyder Editor
+----------------------------------------------------
+file:   convert_data_to_MNIST.py
 
-@author: Daniel Jaensch
-# link: https://docs.python.org/3/tutorial/classes.html
+author: Daniel Jaensch
+email:  daniel.jaensch@gmail.com
+data:   2018-11-18
+----------------------------------------------------
 """
+
+# ------ imports -----
 import os
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import utilities as utils
 from PIL import Image
+# --------------------
 
 # -------------------------------------------------------------------
 # -------------- global constants -----------------------------------
@@ -35,13 +42,13 @@ def clear_screen():
          os.system("clear")
     else:
        print("\n") * 120
- 
+
 
 
 def save_vector_image(vecImage, filename):
     """
     Save the image vector in the given filename as grayscale image with 28x28 pixels.
-    
+
     @param vecImage:      numpy array of the image
     @param filename:      the filename of the image
     """
@@ -61,7 +68,7 @@ if utils.exist_directory( CONST_OUTPUT_TRAIN_FOLDER ) == False:
     utils.create_directory( CONST_OUTPUT_TRAIN_FOLDER )
 
 for i in range( 10 ):
-    fn = CONST_OUTPUT_TRAIN_FOLDER + "{}".format( i ) 
+    fn = CONST_OUTPUT_TRAIN_FOLDER + "{}".format( i )
     if utils.exist_directory( fn ) == False:
         utils.create_directory( fn )
 # ----------------------------
@@ -70,25 +77,25 @@ for i in range( 10 ):
 # --- create test folders ----
 if utils.exist_directory( CONST_OUTPUT_TEST_FOLDER ) == False:
     utils.create_directory( CONST_OUTPUT_TEST_FOLDER )
-    
+
 for i in range( 10 ):
-    fn = CONST_OUTPUT_TEST_FOLDER + "{}".format( i ) 
+    fn = CONST_OUTPUT_TEST_FOLDER + "{}".format( i )
     if utils.exist_directory( fn ) == False:
         utils.create_directory( fn )
 # ----------------------------
-        
-       
+
+
 # --- create valid folders ----
 if utils.exist_directory( CONST_OUTPUT_VALID_FOLDER ) == False:
     utils.create_directory( CONST_OUTPUT_VALID_FOLDER )
-    
+
 for i in range( 10 ):
-    fn = CONST_OUTPUT_VALID_FOLDER + "{}".format( i ) 
+    fn = CONST_OUTPUT_VALID_FOLDER + "{}".format( i )
     if utils.exist_directory( fn ) == False:
         utils.create_directory( fn )
 # ----------------------------
-        
-        
+
+
 # ------------- Loading The Dataset -------------------------
 # loading the dataset.......(Train)
 print("---------------------------------------------------------------------")
@@ -126,17 +133,17 @@ for i in range( len(x_train_data) ):
     elif count > 4:
         fn = CONST_OUTPUT_VALID_FOLDER + "{}/valid_image_{}.jpg".format( y_train_data[i],i )
         count = 0
-        
+
     count += 1
     save_vector_image( x_train_data[i], fn )
     # --------------------
-    
+
     # print out the percent
     percent = int( (i/(train_data_length-1))*100 )
     print("\rpercent: {} %\t------ file: {}\t".format(percent, fn), end='')
     # ---------------------
 
-print("\n----------------- training complete --------------------")
+print("\n----------------- converting training complete ----------------------")
 # --------------------------------------------------------------------
 
 
@@ -150,5 +157,5 @@ print("\n----------------- training complete --------------------")
 ##    print("\rpercent: {} %\t------ file: {}".format(percent, fn), end='')
 ##    # ---------------------
 
-##print("\n----------------- training complete --------------------")
+##print("\n----------------- converting testing complete --------------------")
 ## --------------------------------------------------------------------

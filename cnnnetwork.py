@@ -309,23 +309,7 @@ class CNNNetwork(nn.Module):
         """
         lr = self.learning_rate
         
-        if epoch > 30*lr_decay_epoch:
-            lr = lr / 1000000000000000000
-        elif epoch > 28*lr_decay_epoch:
-            lr = lr / 100000000000000000
-        elif epoch > 26*lr_decay_epoch:
-            lr = lr / 10000000000000000
-        elif epoch > 24*lr_decay_epoch:
-            lr = lr / 1000000000000000
-        elif epoch > 22*lr_decay_epoch:
-            lr = lr / 100000000000000
-        elif epoch > 20*lr_decay_epoch:
-            lr = lr / 10000000000000
-        elif epoch > 18*lr_decay_epoch:
-            lr = lr / 1000000000000
-        elif epoch > 16*lr_decay_epoch:
-            lr = lr / 100000000000
-        elif epoch > 14*lr_decay_epoch:
+        if epoch > 14*lr_decay_epoch:
             lr = lr / 10000000000
         elif epoch > 12*lr_decay_epoch:
             lr = lr / 1000000000

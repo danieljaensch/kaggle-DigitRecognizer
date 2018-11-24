@@ -52,11 +52,11 @@ param_save_directory = "./"                                   # ./
 param_learning_rate = 0.001                                   # 0.001
 param_hidden_units = 512                                      # 512
 param_gpu = True                                              # True or False
-
-# ---- set parameters ---------------
-param_image_file = "./MNIST_data/test/6/test_image_1914.jpg"  # default: ./MNIST_data/test/6/test_image_1914.jpg 
+# -----------------------------------
+param_image_file = "./MNIST_data/test/6/test_image_1914.jpg"  # default: ./MNIST_data/test/6/test_image_1914.jpg
 param_load_file_name = "checkpoint.pth"                       # default: checkpoint.pth
 param_top_k = 5                                               # 5
+# -----------------------------------
 
 
 print("----- running with params -----")
@@ -88,4 +88,3 @@ for i in range( len(top_labels) ):
 print("------------------")
 # ----------------------------------
 cnn.imshow( cnn.process_image( param_image_file ))
-
